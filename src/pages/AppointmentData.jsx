@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function AppointmentData() {
   const [appointments, setAppointments] = useState([]);
@@ -8,7 +9,7 @@ export default function AppointmentData() {
 
   const getbooking = async ()=>{
     try {
-      const res = await axios.get("http://localhost:5000/api/bookings") 
+      const res = await axios.get(`${BASE_URL}/api/bookings`); 
       setAppointments(res.data.data)
     } catch (error) {
       console.log(error)

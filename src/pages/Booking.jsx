@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function MultiStepBooking() {
   const [step, setStep] = useState(1);
@@ -79,7 +80,7 @@ export default function MultiStepBooking() {
   const handleSubmit = async () => {
     if (!validateStep()) return;
     try {
-      await axios.post("http://localhost:5000/api/bookings", formData);
+      await axios.post(`${BASE_URL}/api/bookings`, formData);
       alert("✅ Booking submitted successfully!");
       setStep(1);
     } catch (err) {
