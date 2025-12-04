@@ -12,6 +12,8 @@ import AppointmentData from "./pages/AppointmentData.jsx";  // 👈 yeh import k
 
 
 export default function App() {
+      const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    console.log(BASE_URL)
   return (
     <Router>
       <Routes>

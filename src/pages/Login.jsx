@@ -2,7 +2,6 @@ import { useState } from "react";
 import login1Bg from "../assets/login1.png";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,6 +9,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
+    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    console.log(BASE_URL)
     e.preventDefault();
     try {
       const res = await axios.post(`${BASE_URL}/api/auth/login`, {
@@ -32,14 +33,14 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black px-4"
-     style={{
+      style={{
         // backgroundImage: "loginBg",
-        
+
         backgroundImage: `url(${login1Bg})`,  // ✅ correct
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}>
-    
+
       <div className="w-full max-w-md bg-gray-900 rounded-2xl shadow-2xl p-8">
         {/* 🔹 Heading */}
         <h2 className="text-3xl font-bold text-center text-white mb-4">

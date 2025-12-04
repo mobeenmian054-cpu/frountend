@@ -8,6 +8,8 @@ function Register() {
   const [password, setPassword] = useState("");
 
   const handleRegister = async (e) => {
+        const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    console.log(BASE_URL)
     e.preventDefault();
     try {
       await axios.post(`${BASE_URL}/api/auth/register`, {
